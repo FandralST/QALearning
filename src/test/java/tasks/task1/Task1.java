@@ -1,6 +1,6 @@
 package tasks.task1;
 
-import Core.BaseSelenideTest;
+import Core.BaseTest;
 import com.codeborne.selenide.Condition;
 import org.junit.jupiter.api.Test;
 import tasks.task1.pages.SearchResultPage;
@@ -8,7 +8,7 @@ import tasks.task1.steps.HhSteps;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class Task1 extends BaseSelenideTest {
+public class Task1 extends BaseTest {
 
     public HhSteps hhSteps = new HhSteps();
     SearchResultPage searchResultPage = new SearchResultPage();

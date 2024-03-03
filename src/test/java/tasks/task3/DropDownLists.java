@@ -7,7 +7,7 @@ import static com.codeborne.selenide.Selenide.$x;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class DropDownLists {
-//поменять на руты
+    //TODO: Переписать на руты
     public void checkHeader(String elementName) {
         assertThat($x(String.format(".//h1[text()='%s']", elementName)).should(Condition.visible).isDisplayed()).isTrue();
     }
@@ -54,7 +54,7 @@ public class DropDownLists {
         $x(String.format(".//div[@class='css-12jo7m5' and text()='%s']/following-sibling::div", elementName)).click();
         assertThat($x(String.format(".//div[@class='css-12jo7m5' and text()='%s']", elementName)).shouldNot(Condition.visible).isDisplayed()).isFalse();
     }
-
+    ///TODO: Переписать, используя List
     public void selectFourValues(String elementName1, String elementName2, String elementName3, String elementName4) {
         SelenideElement root = $x(".//div[@class=' css-26l3qy-menu']");
         root.$x(String.format(".//div[contains(@class,'option') and text()='%s']", elementName1)).click();

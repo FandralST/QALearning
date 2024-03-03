@@ -12,7 +12,7 @@ public class FieldsAndButtonsDemoQA {
     //переместить в класс с таблицей
     public SelenideElement loginNewUserButton = $x(".//button[@id='newUser']");
 
-
+    ///TODO: Исправить работу с плейсхолдерами и дописать метод снизу
     public SelenideElement inputUserNameField = $x(".//input[@placeholder='UserName']");
     public SelenideElement inputPasswordField = $x(".//input[@placeholder='Password']");
     public SelenideElement inputAgeField = $x(".//input[@placeholder='Age']");
@@ -24,6 +24,10 @@ public class FieldsAndButtonsDemoQA {
 
     public void clickByPlaceholder(String placeholder) {
         //в степс перенести и дописать
+    }
+
+    public void inputValueByElementName(String placeholder, String value){
+        //TODO: сделать универсальный метод, потом удалить все одинаковые элементы сверху
     }
 
 }

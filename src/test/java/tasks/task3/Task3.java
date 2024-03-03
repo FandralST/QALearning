@@ -1,6 +1,6 @@
 package tasks.task3;
 
-import Core.BaseSelenideTest;
+import Core.BaseTest;
 import com.codeborne.selenide.Condition;
 import com.github.javafaker.Faker;
 import org.junit.jupiter.api.Test;
@@ -10,7 +10,7 @@ import tasks.task3.pagesAndActions.MainPageDemoQA;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class Task3 extends BaseSelenideTest {
+public class Task3 extends BaseTest {
 
 MainPageDemoQA mainPageDemoQA = new MainPageDemoQA();
 ChoicePageDemoQA choicePageDemoQA = new ChoicePageDemoQA();

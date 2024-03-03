@@ -3,7 +3,7 @@ package Core;
 import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.BeforeAll;
 
-public class BaseSelenideTest {
+public class BaseTest {
 
     public static WebDriverConfig config = ConfigFactory.create(WebDriverConfig.class, System.getProperties());
 
@@ -11,7 +11,5 @@ public class BaseSelenideTest {
     static void setUp(){
         new WebDriverProviderSelenide().get();
     }
-
-
-
+    
 }

@@ -1,11 +1,10 @@
 package tasks.task2;
 
-import Core.BaseSelenideTest;
-import com.codeborne.selenide.SelenideElement;
+import Core.BaseTest;
 import org.junit.jupiter.api.Test;
 import tasks.task2.pages.MainPageAppleInsider;
 
-public class Task2 extends BaseSelenideTest {
+public class Task2 extends BaseTest {
 
     /*
      * Задание2.

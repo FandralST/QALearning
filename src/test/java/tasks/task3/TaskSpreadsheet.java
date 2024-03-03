@@ -1,6 +1,6 @@
 package tasks.task3;
 
-import Core.BaseSelenideTest;
+import Core.BaseTest;
 import com.codeborne.selenide.Condition;
 import com.github.javafaker.Faker;
 import org.junit.jupiter.api.BeforeEach;
@@ -9,7 +9,7 @@ import tasks.task3.pagesAndActions.*;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class TaskSpreadsheet extends BaseSelenideTest {
+public class TaskSpreadsheet extends BaseTest {
 
     MainPageDemoQA mainPageDemoQA = new MainPageDemoQA();
     StepsSpreadsheet stepsSpreadsheet = new StepsSpreadsheet();

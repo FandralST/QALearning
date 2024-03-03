@@ -1,6 +1,6 @@
 package tasks.task3;
 
-import Core.BaseSelenideTest;
+import Core.BaseTest;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import tasks.task3.pagesAndActions.ChoicePageDemoQA;
@@ -10,7 +10,7 @@ import tasks.task3.pagesAndActions.WebTablesDemoQA;
 import static org.assertj.core.api.Assertions.assertThat;
 
 
-public class TasksDropDownLists extends BaseSelenideTest {
+public class TasksDropDownLists extends BaseTest {
     MainPageDemoQA mainPageDemoQA = new MainPageDemoQA();
     ChoicePageDemoQA choicePageDemoQA = new ChoicePageDemoQA();
     WebTablesDemoQA webTablesDemoQA = new WebTablesDemoQA();

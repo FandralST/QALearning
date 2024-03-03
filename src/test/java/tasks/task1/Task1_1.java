@@ -1,6 +1,6 @@
 package tasks.task1;
 
-import Core.BaseSelenideTest;
+import Core.BaseTest;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.Selenide;
 import org.junit.jupiter.api.Test;
@@ -12,7 +12,7 @@ import static com.codeborne.selenide.Selenide.$$x;
 
 
 
-public class Task1_1 extends BaseSelenideTest {
+public class Task1_1 extends BaseTest {
 
     public HhSteps hhSteps = new HhSteps();
 

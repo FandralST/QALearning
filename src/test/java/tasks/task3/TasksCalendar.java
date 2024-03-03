@@ -1,6 +1,6 @@
 package tasks.task3;
 
-import Core.BaseSelenideTest;
+import Core.BaseTest;
 import com.codeborne.selenide.Condition;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -9,12 +9,11 @@ import tasks.task3.pagesAndActions.MainPageDemoQA;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 
-public class TasksCalendar extends BaseSelenideTest {
+public class TasksCalendar extends BaseTest {
     MainPageDemoQA mainPageDemoQA = new MainPageDemoQA();
     Calendar calendar = new Calendar();
     ChoicePageDemoQA choicePageDemoQA = new ChoicePageDemoQA();
