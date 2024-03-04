@@ -7,6 +7,9 @@ import tasks.task3.pagesAndActions.ChoicePageDemoQA;
 import tasks.task3.pagesAndActions.MainPageDemoQA;
 import tasks.task3.pagesAndActions.WebTablesDemoQA;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 
@@ -34,6 +37,7 @@ public class TasksDropDownLists extends BaseTest {
 
     @Test
     void taskDropDownList_MultiSelect() {
+        List<String> list = List.of("Blue","Green","Red","Black");
         dropDownLists.performMultiSelectListClick("Select...","Select...");
         dropDownLists.checkValueMultiSelect("Select...","Blue");
         dropDownLists.clickValueMultiSelect("Select...","Green");
@@ -42,7 +46,7 @@ public class TasksDropDownLists extends BaseTest {
         dropDownLists.checkSelectedValueMultiSelect("Select...","Blue");
         dropDownLists.deleteValueMultiSelect("Select...","Green");
         dropDownLists.deleteValueMultiSelect("Select...","Blue");
-        dropDownLists.selectFourValues("Select...","Blue", "Green", "Red", "Black");//через лист
+        dropDownLists.selectFourValues("Select...",list);//через лист
         dropDownLists.checkFourValues();
         System.out.println(1);
     }

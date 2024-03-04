@@ -3,6 +3,9 @@ package tasks.task3;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static com.codeborne.selenide.Selenide.$x;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -60,13 +63,12 @@ public class DropDownLists {
         root.$x(String.format(".//div[@class='css-12jo7m5' and text()='%s']/following-sibling::div", elementName)).click();
         assertThat(root.$x(String.format(".//div[@class='css-12jo7m5' and text()='%s']", elementName)).shouldNot(Condition.visible).isDisplayed()).isFalse();
     }
-    ///TODO: Переписать, используя List
-    public void selectFourValues(String rootName, String elementName1, String elementName2, String elementName3, String elementName4) {
+
+    public void selectFourValues(String rootName, List <String> list) {
         SelenideElement root = $x(String.format(" .//div[contains(@class,'placeholder') and text()='%s']//ancestor::div[4]", rootName));
-        root.$x(String.format(".//div[contains(@class,'option') and text()='%s']", elementName1)).click();
-        root.$x(String.format(".//div[contains(@class,'option') and text()='%s']", elementName2)).click();
-        root.$x(String.format(".//div[contains(@class,'option') and text()='%s']", elementName3)).click();
-        root.$x(String.format(".//div[contains(@class,'option') and text()='%s']", elementName4)).click();
+        for(String value:list){
+            root.$x(String.format(".//div[contains(@class,'option') and text()='%s']", value)).click();
+        }
     }
 
     public void checkFourValues() {
