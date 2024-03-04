@@ -20,7 +20,7 @@ public class TasksCalendar extends BaseTest {
 
     @BeforeEach
     void precondition() {
-        mainPageDemoQA.widgetsHeader.click();
+        mainPageDemoQA.clickOnWidget("Widgets");
         choicePageDemoQA.performSubMenuClick( "Date Picker");
         assertThat(calendar.getSelectDateField("Select Date").should(Condition.visible).isDisplayed()).isTrue();
     }

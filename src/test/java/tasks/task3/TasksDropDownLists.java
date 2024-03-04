@@ -18,31 +18,31 @@ public class TasksDropDownLists extends BaseTest {
 
     @BeforeEach
     void precondition() {
-        mainPageDemoQA.widgetsHeader.click();
+        mainPageDemoQA.clickOnWidget("Widgets");
         choicePageDemoQA.performSubMenuClick("Select Menu");
         dropDownLists.checkHeader("Select Menu");
     }//IT'S WORKING
 
     @Test
     void taskDropDownList_SelectValue() {
-        dropDownLists.performDropDownListClick("withOptGroup");
-        dropDownLists.checkValue("Group 2, option 2");
-        dropDownLists.clickValue("Group 2, option 2");
-        dropDownLists.checkSelectedValue("Group 2, option 2");
+        dropDownLists.performDropDownListClick("Select Option", "withOptGroup");
+        dropDownLists.checkValue("Select Option","Group 2, option 2");
+        dropDownLists.clickValue("Select Option","Group 2, option 2");
+        dropDownLists.checkSelectedValue("Select Option","Group 2, option 2");
         System.out.println(1);
     }
 
     @Test
     void taskDropDownList_MultiSelect() {
-        dropDownLists.performMultiSelectListClick("Select...");
-        dropDownLists.checkValueMultiSelect("Blue");
-        dropDownLists.clickValueMultiSelect("Green");
-        dropDownLists.clickValueMultiSelect("Blue");
-        dropDownLists.checkSelectedValueMultiSelect("Green");
-        dropDownLists.checkSelectedValueMultiSelect("Blue");
-        dropDownLists.deleteValueMultiSelect("Green");
-        dropDownLists.deleteValueMultiSelect("Blue");
-        dropDownLists.selectFourValues("Blue", "Green", "Red", "Black");//через лист
+        dropDownLists.performMultiSelectListClick("Select...","Select...");
+        dropDownLists.checkValueMultiSelect("Select...","Blue");
+        dropDownLists.clickValueMultiSelect("Select...","Green");
+        dropDownLists.clickValueMultiSelect("Select...","Blue");
+        dropDownLists.checkSelectedValueMultiSelect("Select...","Green");
+        dropDownLists.checkSelectedValueMultiSelect("Select...","Blue");
+        dropDownLists.deleteValueMultiSelect("Select...","Green");
+        dropDownLists.deleteValueMultiSelect("Select...","Blue");
+        dropDownLists.selectFourValues("Select...","Blue", "Green", "Red", "Black");//через лист
         dropDownLists.checkFourValues();
         System.out.println(1);
     }

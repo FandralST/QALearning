@@ -7,56 +7,62 @@ import static com.codeborne.selenide.Selenide.$x;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class DropDownLists {
-    //TODO: Переписать на руты
     public void checkHeader(String elementName) {
         assertThat($x(String.format(".//h1[text()='%s']", elementName)).should(Condition.visible).isDisplayed()).isTrue();
     }
 
-    public void performDropDownListClick(String list) {
-        SelenideElement dropDownList = $x(String.format(".//div[@class=' css-2b097c-container' and @id='%s']", list));
+    public void performDropDownListClick(String rootName, String list) {
+        SelenideElement root = $x(String.format(".//div[contains(@class,'placeholder') and text()='%s']//ancestor::div[4]", rootName));
+        root.$x(String.format(".//div[@id='%s']", list)).click();
+    }
+
+    public void checkValue(String rootName, String elementName) {
+        SelenideElement root = $x(String.format(".//div[contains(@class,'placeholder') and text()='%s']//ancestor::div[4]", rootName));
+        assertThat(root.$x(String.format(".//div[text()='%s']", elementName)).should(Condition.visible).isDisplayed()).isTrue();
+    }
+
+    public void clickValue(String rootName, String elementName) {
+        SelenideElement root = $x(String.format(".//div[contains(@class,'placeholder') and text()='%s']//ancestor::div[4]", rootName));
+        root.$x(String.format(".//div[text()='%s']", elementName)).click();
+    }
+
+    public void checkSelectedValue(String rootName, String elementName) {
+        SelenideElement root = $x(String.format(".//div[contains(@class,'placeholder') and text()='%s']//ancestor::div[4]", rootName));
+        assertThat($x(String.format(".//div[contains(@class, 'singleValue') and text()='%s']", elementName)).should(Condition.visible).isDisplayed()).isTrue();
+    }
+
+
+
+    public void performMultiSelectListClick(String rootName, String list) {
+        SelenideElement root = $x(String.format(".//div[contains(@class,'placeholder') and text()='%s']//ancestor::div[4]", rootName));
+        SelenideElement dropDownList = $x(String.format(".//div[text()='%s']", list));
         dropDownList.click();
 
     }
 
-    public void checkValue(String elementName) {
-        assertThat($x(String.format(".//div[@class=' css-yt9ioa-option' and text()='%s']", elementName)).should(Condition.visible).isDisplayed()).isTrue();
-    }
-
-    public void clickValue(String elementName) {
-        $x(String.format(".//div[@class=' css-yt9ioa-option' and text()='%s']", elementName)).click();
-    }
-
-    public void checkSelectedValue(String elementName) {
-        assertThat($x(String.format(".//div[@class=' css-1uccc91-singleValue' and text()='%s']", elementName)).should(Condition.visible).isDisplayed()).isTrue();
-    }
-
-    public void performMultiSelectListClick(String list) {
-        SelenideElement dropDownList = $x(String.format(".//div[@class=' css-1wa3eu0-placeholder' and text()='%s']", list));
-        dropDownList.click();
-
-    }
-
-    public void checkValueMultiSelect(String elementName) {
-        SelenideElement root = $x(".//div[@class=' css-26l3qy-menu']");
+    public void checkValueMultiSelect(String rootName, String elementName) {
+        SelenideElement root = $x(String.format(".//div[contains(@class,'placeholder') and text()='%s']//ancestor::div[4]", rootName));
         assertThat(root.$x(String.format(".//div[contains(@class,'option') and text()='%s']", elementName)).should(Condition.visible).isDisplayed()).isTrue();
     }
 
-    public void clickValueMultiSelect(String elementName) {
-        SelenideElement root = $x(".//div[@class=' css-26l3qy-menu']");
+    public void clickValueMultiSelect(String rootName, String elementName) {
+        SelenideElement root = $x(String.format(".//div[contains(@class,'placeholder') and text()='%s']//ancestor::div[4]", rootName));
         root.$x(String.format(".//div[contains(@class,'option') and text()='%s']", elementName)).click();
     }
 
-    public void checkSelectedValueMultiSelect(String elementName) {
-        assertThat($x(String.format(".//div[@class='css-12jo7m5' and text()='%s']", elementName)).should(Condition.visible).isDisplayed()).isTrue();
+    public void checkSelectedValueMultiSelect(String rootName, String elementName) {
+        SelenideElement root = $x(String.format(".//div[contains(@class,'placeholder') and text()='%s']//ancestor::div[4]", rootName));
+        assertThat(root.$x(String.format(".//div[@class='css-12jo7m5' and text()='%s']", elementName)).should(Condition.visible).isDisplayed()).isTrue();
     }
 
-    public void deleteValueMultiSelect(String elementName) {
-        $x(String.format(".//div[@class='css-12jo7m5' and text()='%s']/following-sibling::div", elementName)).click();
-        assertThat($x(String.format(".//div[@class='css-12jo7m5' and text()='%s']", elementName)).shouldNot(Condition.visible).isDisplayed()).isFalse();
+    public void deleteValueMultiSelect(String rootName, String elementName) {
+        SelenideElement root = $x(String.format(" .//div[contains(@class,'placeholder') and text()='%s']//ancestor::div[4]", rootName));
+        root.$x(String.format(".//div[@class='css-12jo7m5' and text()='%s']/following-sibling::div", elementName)).click();
+        assertThat(root.$x(String.format(".//div[@class='css-12jo7m5' and text()='%s']", elementName)).shouldNot(Condition.visible).isDisplayed()).isFalse();
     }
     ///TODO: Переписать, используя List
-    public void selectFourValues(String elementName1, String elementName2, String elementName3, String elementName4) {
-        SelenideElement root = $x(".//div[@class=' css-26l3qy-menu']");
+    public void selectFourValues(String rootName, String elementName1, String elementName2, String elementName3, String elementName4) {
+        SelenideElement root = $x(String.format(" .//div[contains(@class,'placeholder') and text()='%s']//ancestor::div[4]", rootName));
         root.$x(String.format(".//div[contains(@class,'option') and text()='%s']", elementName1)).click();
         root.$x(String.format(".//div[contains(@class,'option') and text()='%s']", elementName2)).click();
         root.$x(String.format(".//div[contains(@class,'option') and text()='%s']", elementName3)).click();

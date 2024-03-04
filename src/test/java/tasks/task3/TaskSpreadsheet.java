@@ -21,7 +21,7 @@ public class TaskSpreadsheet extends BaseTest {
     @BeforeEach
     void precondition(){
         firstName =  faker.name().firstName();
-        mainPageDemoQA.elementsHeader.click();
+        mainPageDemoQA.clickOnWidget("Elements");
         choicePageDemoQA.performSubMenuClick("Web Tables");
         assertThat(webTablesDemoQA.webTablesMainTable.should(Condition.visible).isDisplayed()).isTrue();
     }
