@@ -11,26 +11,23 @@ public class StepsSpreadsheet {
     WebTablesDemoQA webTablesDemoQA = new WebTablesDemoQA();
     FieldsAndButtonsDemoQA fieldsAndButtonsDemoQA = new FieldsAndButtonsDemoQA();
     Faker faker = new Faker();
-    String firstName = faker.name().firstName();
 
-
-    public void addRow() {
+    public void addRow(String firstName) {
         webTablesDemoQA.webTablesAdd.click();
         assertThat(webTablesDemoQA.webTablesRegistrationForm.should(Condition.visible).isDisplayed()).isTrue();
-        fieldsAndButtonsDemoQA.inputFirstNameField.sendKeys(firstName);
-        fieldsAndButtonsDemoQA.inputLastNameField.sendKeys(faker.name().lastName());
-        fieldsAndButtonsDemoQA.inputMailField.sendKeys(faker.internet().emailAddress());
-        fieldsAndButtonsDemoQA.inputAgeField.sendKeys(String.valueOf(faker.number().numberBetween(25, 50)));
-        fieldsAndButtonsDemoQA.inputSalaryField.sendKeys(String.valueOf(faker.number().numberBetween(10000, 65000)));
-        fieldsAndButtonsDemoQA.inputDepartmentField.sendKeys("Legal");
+        fieldsAndButtonsDemoQA.inputValueByElementName("First Name", firstName);
+        fieldsAndButtonsDemoQA.inputValueByElementName("Last Name", faker.name().lastName());
+        fieldsAndButtonsDemoQA.inputValueByElementName("name@example.com", faker.internet().emailAddress());
+        fieldsAndButtonsDemoQA.inputValueByElementName("Age", String.valueOf(faker.number().numberBetween(25, 50)));
+        fieldsAndButtonsDemoQA.inputValueByElementName("Salary", String.valueOf(faker.number().numberBetween(10000, 65000)));
+        fieldsAndButtonsDemoQA.inputValueByElementName("Department", "Legal");
         webTablesDemoQA.submitButton.click();
     }
 
     public void editRow(String firstName) {
         String anotherFirstName = faker.name().firstName();
         webTablesDemoQA.clickEditRow(firstName);
-        fieldsAndButtonsDemoQA.inputFirstNameField.clear();
-        fieldsAndButtonsDemoQA.inputFirstNameField.sendKeys(anotherFirstName);
+        fieldsAndButtonsDemoQA.inputValueByElementName("First Name", anotherFirstName);
         webTablesDemoQA.submitButton.click();
     }
 

@@ -15,18 +15,15 @@ public class FieldsAndButtonsDemoQA {
     ///TODO: Исправить работу с плейсхолдерами и дописать метод снизу
     public SelenideElement inputUserNameField = $x(".//input[@placeholder='UserName']");
     public SelenideElement inputPasswordField = $x(".//input[@placeholder='Password']");
-    public SelenideElement inputAgeField = $x(".//input[@placeholder='Age']");
-    public SelenideElement inputSalaryField = $x(".//input[@placeholder='Salary']");
-    public SelenideElement inputDepartmentField = $x(".//input[@placeholder='Department']");
-    public SelenideElement inputMailField = $x(".//input[@placeholder='name@example.com']");
-    public SelenideElement inputFirstNameField = $x(".//input[@placeholder='First Name']");
-    public SelenideElement inputLastNameField = $x(".//input[@placeholder='Last Name']");
 
-    public void clickByPlaceholder(String placeholder) {
-        //в степс перенести и дописать
+    public void clickByPlaceholder(String placeholder, String keys) {
+
+        $x(String.format(".//input[@placeholder='%s']",placeholder)).sendKeys(keys);
     }
 
     public void inputValueByElementName(String placeholder, String value){
+        $x(String.format(".//input[@placeholder='%s']",placeholder)).clear();
+        $x(String.format(".//input[@placeholder='%s']",placeholder)).sendKeys(value);
         //TODO: сделать универсальный метод, потом удалить все одинаковые элементы сверху
     }
 

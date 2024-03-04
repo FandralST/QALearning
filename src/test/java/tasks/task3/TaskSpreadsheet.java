@@ -28,20 +28,20 @@ public class TaskSpreadsheet extends BaseTest {
 
     @Test
     void taskSpreadsheet_AddRow() {
-        stepsSpreadsheet.addRow();
+        stepsSpreadsheet.addRow(firstName);
         webTablesDemoQA.checkIsDisplayed(firstName);
     }
 
     @Test
     void taskSpreadsheet_DeleteRow() {
-        stepsSpreadsheet.addRow();
+        stepsSpreadsheet.addRow(firstName);
         webTablesDemoQA.clickDeleteRow(firstName);
         webTablesDemoQA.checkIsNotDisplayed(firstName);
     }
 
     @Test
     void taskSpreadsheet_EditRow() {
-        stepsSpreadsheet.addRow();
+        stepsSpreadsheet.addRow(firstName);
         stepsSpreadsheet.editRow(firstName);
         webTablesDemoQA.checkIsNotDisplayed(firstName);
     }

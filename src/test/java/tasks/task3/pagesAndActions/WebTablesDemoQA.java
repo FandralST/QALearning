@@ -9,16 +9,16 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class WebTablesDemoQA {
     public SelenideElement webTablesMainTable = $x(".//div[@class='rt-table']");
     public SelenideElement webTablesAdd = $x(".//button[@id='addNewRecordButton']");
-    public SelenideElement webTablesRegistrationForm = $x(".//div[@id='registration-form-modal']");
+    public SelenideElement webTablesRegistrationForm = $x(".//div[@id='registration-form-modal' and text()='Registration Form']");
     public SelenideElement submitButton = $x(".//button[@id='submit']");
 
     public void clickDeleteRow(String firstName) {
-        SelenideElement row = $x(".//div[@class='rt-td' and text()='" + firstName + "']/ancestor::div[1]");
+        SelenideElement row = $x(String.format( ".//div[@class='rt-td' and text()='%s']/ancestor::div[1]", firstName));
         row.$x(".//span[@title='Delete']").click();
     }
 
     public void clickEditRow(String firstName){
-        SelenideElement row = $x(".//div[@class='rt-td' and text()='" + firstName + "']/ancestor::div[1]");
+        SelenideElement row = $x(String.format( ".//div[@class='rt-td' and text()='%s']/ancestor::div[1]", firstName));
         row.$x(".//span[@title='Edit']").click();
     }
 
