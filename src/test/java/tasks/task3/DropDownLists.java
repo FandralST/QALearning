@@ -3,7 +3,6 @@ package tasks.task3;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static com.codeborne.selenide.Selenide.$x;
@@ -35,7 +34,6 @@ public class DropDownLists {
     }
 
 
-
     public void performMultiSelectListClick(String rootName, String list) {
         SelenideElement root = $x(String.format(".//div[contains(@class,'placeholder') and text()='%s']//ancestor::div[4]", rootName));
         SelenideElement dropDownList = $x(String.format(".//div[text()='%s']", list));
@@ -64,9 +62,9 @@ public class DropDownLists {
         assertThat(root.$x(String.format(".//div[@class='css-12jo7m5' and text()='%s']", elementName)).shouldNot(Condition.visible).isDisplayed()).isFalse();
     }
 
-    public void selectFourValues(String rootName, List <String> list) {
+    public void selectFourValues(String rootName, List<String> list) {
         SelenideElement root = $x(String.format(" .//div[contains(@class,'placeholder') and text()='%s']//ancestor::div[4]", rootName));
-        for(String value:list){
+        for (String value : list) {
             root.$x(String.format(".//div[contains(@class,'option') and text()='%s']", value)).click();
         }
     }
@@ -74,6 +72,4 @@ public class DropDownLists {
     public void checkFourValues() {
         assertThat($x(String.format(".//div[@class=' css-1gl4k7y' and text()='No options']")).should(Condition.visible).isDisplayed()).isTrue();
     }
-
-
 }
