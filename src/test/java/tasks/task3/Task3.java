@@ -8,6 +8,9 @@ import tasks.task3.pagesAndActions.ChoicePageDemoQA;
 import tasks.task3.pagesAndActions.FieldsAndButtonsDemoQA;
 import tasks.task3.pagesAndActions.MainPageDemoQA;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class Task3 extends BaseTest {
@@ -48,6 +51,9 @@ String Password = "IK0ut5IXecdy";
         fieldsAndButtonsDemoQA.loginButton.click();
         System.out.println("");
 
+        List<String> myList = List.of("value1","value");
+        String value="value";
+        assertThat(myList).contains(value);
 
     }
     /*

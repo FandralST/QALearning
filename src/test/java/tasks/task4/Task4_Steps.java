@@ -11,6 +11,7 @@ import static io.restassured.RestAssured.given;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class Task4_Steps {
+    //TODO:переименовать post->createPet,getAfterPost-> findAllPets, delete->deletePet, getAfterDelete->checkIsDeleted
     public void post(String path,String petName, Root pet) {
         BaseSpecification.installSpecification(getBaseSpec(path), BaseSpecification.responseSpecificationOK200().response());
         pet.setName(petName);

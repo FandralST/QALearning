@@ -12,12 +12,14 @@ public class Task4 {
     Root pet = new Root();
     String petName = "Doom";
 
+    //TODO: переместить path в steps, убрать как параметр из методов
+    //TODO: создать preconditions с beforeEach, где будут инициализироваться pet и petName
 
     @Test
     void Task4() {
         task4_steps.post(path,petName, pet);
         task4_steps.getAfterPost(path, pet);
         task4_steps.delete(path,pet);
-       task4_steps.getAfterDelete(path, pet);
+        task4_steps.getAfterDelete(path, pet);
     }
 }
