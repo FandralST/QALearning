@@ -11,8 +11,9 @@ import static io.restassured.RestAssured.given;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class Task4_Steps {
+    private final String path = "https://petstore.swagger.io/v2/";
     //TODO:переименовать post->createPet,getAfterPost-> findAllPets, delete->deletePet, getAfterDelete->checkIsDeleted
-    public void post(String path,String petName, Root pet) {
+    public void post(String petName, Root pet) {
         BaseSpecification.installSpecification(getBaseSpec(path), BaseSpecification.responseSpecificationOK200().response());
         pet.setName(petName);
         pet.setStatus("available");
@@ -27,7 +28,7 @@ public class Task4_Steps {
         assertThat(pet.getName()).isEqualTo(successReg.getName());
     }
 
-    public void getAfterPost(String path, Root pet){
+    public void findAllPets(Root pet){
         BaseSpecification.installSpecification(getBaseSpec(path), BaseSpecification.responseSpecificationOK200().response());
         List<Root> petList = given()
                 .when()
@@ -39,7 +40,7 @@ public class Task4_Steps {
         assertThat(idS).contains(pet.getId().toString());
     }
 
-    public void delete (String path, Root pet){
+    public void deletePet(Root pet){
         BaseSpecification.installSpecification(getBaseSpec(path), BaseSpecification.responseSpecificationOK404().response());
         given()
                 .when()
@@ -47,7 +48,7 @@ public class Task4_Steps {
                 .then().log().all();
     }
 
-    public void getAfterDelete(String path, Root pet){
+    public void checkIsDeleted(Root pet){
         BaseSpecification.installSpecification(getBaseSpec(path), BaseSpecification.responseSpecificationOK200().response());
         List<Root> petList = given()
                 .when()
